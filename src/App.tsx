@@ -1,13 +1,19 @@
 import "./App.css";
 import NavBar from "./componentes/NavBar";
-import ImagemProp from "./componentes/img";
-import FundoHome from "./assets/scandinavian-interior-mockup-wall-decal-background 1.svg";
+import About from "./pages/About";
+import Home from "./pages/home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <NavBar />
-      <ImagemProp imagemSrc={FundoHome} className="w-full" />
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

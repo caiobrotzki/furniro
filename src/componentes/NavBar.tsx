@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/Meubel House_Logos-05 (1).svg";
 import user from "../assets/mdi_account-alert-outline.svg";
 import search from "../assets/akar-icons_search.svg";
@@ -12,16 +13,32 @@ function NavBar() {
         <h1 className="text-black text-2xl font-bold">Furniro</h1>
       </div>
       <ul className="flex space-x-10">
-        <li className="text-black text-base cursor-pointer">Home</li>
-        <li className="text-black cursor-pointer">Shop</li>
-        <li className="text-black cursor-pointer">About</li>
-        <li className="text-black cursor-pointer">Contact</li>
+        <li>
+          <Link to="/" className="text-black text-base cursor-pointer">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/shop" className="text-black cursor-pointer">
+            Shop
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" className="text-black cursor-pointer">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className="text-black cursor-pointer">
+            Contact
+          </Link>
+        </li>
       </ul>
       <div className="flex items-center space-x-6">
         <img src={user} alt="User" className="cursor-pointer" />
-        <img src={search} alt="Serch" className="cursor-pointer" />
+        <img src={search} alt="Search" className="cursor-pointer" />
         <img src={heart} alt="Heart" className="cursor-pointer" />
-        <img src={shoppingCar} alt="ShoppingCar" className="cursor-pointer" />
+        <img src={shoppingCar} alt="ShoppingCart" className="cursor-pointer" />
       </div>
     </div>
   );
