@@ -34,7 +34,7 @@ function NavBar() {
           </Link>
         </li>
       </ul>
-      <div className="flex items-center space-x-6">
+      <div className="flex items-center space-x-7">
         <img src={user} alt="User" className="cursor-pointer" />
         <img src={search} alt="Search" className="cursor-pointer" />
         <img src={heart} alt="Heart" className="cursor-pointer" />
