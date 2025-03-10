@@ -7,9 +7,9 @@ import shoppingCar from "../assets/ant-design_shopping-cart-outlined.svg";
 
 function NavBar() {
   return (
-    <div className="w-full pt-7 pb-8 flex justify-between items-center px-20 fixed bg-white">
+    <div className="w-full pt-7 pb-8 flex justify-between items-center px-20  fixed z-50 bg-white">
       <div className="flex items-center gap-2">
-        <img src={logo} alt="logo" className="w-8 h-8" />
+        <img src={logo} alt="logo" className="w-8 h-8 m-" />
         <h1 className="text-black text-2xl font-bold">Furniro</h1>
       </div>
       <ul className="flex space-x-10">
