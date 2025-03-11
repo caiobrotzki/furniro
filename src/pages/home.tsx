@@ -33,7 +33,7 @@ function Home() {
             />
           ))}
         </div>
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-6 mb-10">
           <Button
             title="Show More"
             className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border border-[#B88E2F] border-2"
