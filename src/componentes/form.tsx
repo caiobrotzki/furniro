@@ -4,25 +4,28 @@ interface InputProps {
   type: string;
   id?: string;
   name: string;
-  classname: string;
+  className: string;
   placeholder?: string;
+  label?: string; // Adicionado 'label' para o texto da label
 }
 
 const Input: React.FC<InputProps> = ({
   type,
   id,
   name,
-  classname,
+  className,
   placeholder,
 }) => {
   return (
-    <input
-      type={type}
-      id={id}
-      name={name}
-      className={classname}
-      placeholder={placeholder}
-    />
+    <div>
+      <input
+        type={type}
+        id={id}
+        name={name}
+        className={className}
+        placeholder={placeholder}
+      />
+    </div>
   );
 };
 

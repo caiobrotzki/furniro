@@ -9,7 +9,7 @@ function Home() {
   return (
     <div>
       <CardHome />
-      <div>
+      <div className="z-10">
         <h2 className="pt-10 text-center font-bold text-2xl ">
           Browse The Range
         </h2>
@@ -18,11 +18,11 @@ function Home() {
         </p>
         <Section />
       </div>
-      <div className="">
+      <div className="z-10">
         <h2 className="text-center mt-9 text-3xl font-bold pt-5 pb-7">
           Our Products
         </h2>
-        <div className="grid grid-cols-4 gap-10 place-items-center max-w-screen-xl mx-auto ">
+        <div className="grid grid-cols-4 gap-10 place-items-center max-w-screen-xl mx-auto z-10">
           {cardArray.map((_, index) => (
             <Card
               key={index}
@@ -33,7 +33,7 @@ function Home() {
             />
           ))}
         </div>
-        <div className="flex justify-center mt-6 mb-10">
+        <div className="flex justify-center mt-6 mb-10 z-10">
           <Button
             title="Show More"
             className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border border-[#B88E2F] border-2"

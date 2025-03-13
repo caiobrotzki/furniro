@@ -3,9 +3,9 @@ import Button from "../../../componentes/Button";
 
 function Card() {
   return (
-    <div className="relative flex">
-      <img src={ImagemHome} alt="Imagem" className="w-full mt-7" />
-      <div className="absolute top-1/3 right-10 w-full md:w-2/6 bg-[#FFF3E3] p-10 z-20">
+    <div className="relative flex ">
+      <img src={ImagemHome} alt="Imagem" className="w-full mt-7  z-0 " />
+      <div className="absolute top-1/3 right-10 w-full md:w-2/6 bg-[#FFF3E3] p-10 z-20 ">
         <p className="font-semibold tracking-tight text-sm">New Arrival</p>
         <h2 className="text-[#B88E2F] text-4xl font-bold pb-1">Discover Our</h2>
         <h2 className="text-[#B88E2F] text-4xl font-bold pb-2">
