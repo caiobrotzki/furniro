@@ -9,8 +9,8 @@ function NavBar() {
   return (
     <div className="w-full pt-7 pb-8 flex justify-between items-center px-20  fixed z-50 bg-white">
       <div className="flex items-center gap-2">
-        <img src={logo} alt="logo" className="w-8 h-8 m-" />
-        <h1 className="text-black text-2xl font-bold">Furniro</h1>
+        <img src={logo} alt="logo" className="w-[50px] h-[32px] m-" />
+        <h1 className="text-black text-[34px] font-bold">Furniro</h1>
       </div>
       <ul className="flex space-x-10">
         <li>

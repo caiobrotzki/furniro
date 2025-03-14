@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Input from "./form";
 import Button from "./Button";
 
@@ -11,17 +12,23 @@ function Footer() {
         <p className="pr-10 pl-20 text-[#9F9F9F]">Newsletter</p>
       </div>
       <div className="mt-10 ml-40 flex items-start">
-        {" "}
-        {/* Alterado para items-start */}
         <p className="text-[#9F9F9F] w-[285px] h-[72px]">
           400 University Drive Suite 200 Coral Gables, FL 33134 USA
         </p>
         <div>
           <ul className="grid pl-20 pr-3 ml-10 gap-8 font-semibold">
-            <li>Home</li>
-            <li>Shop</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/Shop">Shop</Link>
+            </li>
+            <li>
+              <Link to="/About">About</Link>
+            </li>
+            <li>
+              <Link to="/Contact"> Contact</Link>
+            </li>
           </ul>
         </div>
         <div>

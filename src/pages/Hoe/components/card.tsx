@@ -16,7 +16,7 @@ function Card() {
           facilis architecto consequuntur.
         </p>
         <Button
-          className="bg-[#B88E2F] px-12 py-6 text-white"
+          className="bg-[#B88E2F] w-[222px] h-[74px] text-white"
           title={"BUY NOW"}
         />
       </div>
