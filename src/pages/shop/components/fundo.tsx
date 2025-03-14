@@ -2,7 +2,7 @@ import ImagemFundo from "../../../assets/Rectangle 1.svg";
 
 function Fundo() {
   return (
-    <div className="pt-16 pb-16 relative">
+    <div className="pt-16  relative">
       <img
         src={ImagemFundo}
         alt="Imagem de fundo desfocada para a seção Shop"

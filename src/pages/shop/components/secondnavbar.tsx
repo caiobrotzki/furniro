@@ -4,7 +4,7 @@ import IconNav2 from "../../../assets/icon-nav2.svg";
 
 function Nav() {
   return (
-    <div className="w-full h-[85px] bg-[#F9F1E7] flex justify-between items-center px-4">
+    <div className="w-full h-[85px] bg-[#F9F1E7] flex justify-between items-center  ">
       <div className="flex items-center ml-20 space-x-5">
         <img src={IconFilter} alt="" className="w-[19px] h-[16px]" />
         <p className="text-[16px]">Filter</p>
