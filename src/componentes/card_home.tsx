@@ -8,6 +8,7 @@ interface Produto2 {
 }
 
 interface CardProps {
+  key: number;
   img: string;
   titulo: string;
   descricao: string;
