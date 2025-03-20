@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-interface Produto {
+interface Produto2 {
   img: string;
   titulo: string;
   descricao: string;
@@ -12,7 +12,7 @@ interface CardProps {
   titulo: string;
   descricao: string;
   valor: string;
-  addToCart: (produto: Produto) => void; // Garantir que a função addToCart é passada corretamente
+  addToCart: (produto: Produto2) => void; // Garantir que a função addToCart é passada corretamente
 }
 
 const Card: React.FC<CardProps> = ({
