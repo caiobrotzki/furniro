@@ -5,6 +5,7 @@ import CardImage from "../assets/image 1.svg";
 import Button from "../componentes/Button";
 
 interface Produto {
+  key: number;
   img: string;
   titulo: string;
   descricao: string;
@@ -18,48 +19,56 @@ interface HomeProps {
 function Home({ handleAddToCart }: HomeProps) {
   const cardArray: Produto[] = [
     {
+      key: 1,
       img: CardImage,
       titulo: "Syltherine",
       descricao: "Stylish cafe chair",
       valor: "Rp 2.500.000",
     },
     {
+      key: 2,
       img: CardImage,
       titulo: "Leviosa",
       descricao: "Modern table",
       valor: "Rp 3.200.000",
     },
     {
+      key: 3,
       img: CardImage,
       titulo: "Lolito",
       descricao: "Luxury sofa",
       valor: "Rp 7.000.000",
     },
     {
+      key: 4,
       img: CardImage,
       titulo: "Respira",
       descricao: "Outdoor bar table",
       valor: "Rp 5.000.000",
     },
     {
+      key: 5,
       img: CardImage,
       titulo: "Grifo",
       descricao: "Dining chair",
       valor: "Rp 1.500.000",
     },
     {
+      key: 6,
       img: CardImage,
       titulo: "Muggo",
       descricao: "Small mug",
       valor: "Rp 150.000",
     },
     {
+      key: 7,
       img: CardImage,
       titulo: "Pingky",
       descricao: "Cute bed",
       valor: "Rp 6.500.000",
     },
     {
+      key: 8,
       img: CardImage,
       titulo: "Potty",
       descricao: "Minimalist flower pot",
