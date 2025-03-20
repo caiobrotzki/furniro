@@ -4,13 +4,74 @@ import Card from "../componentes/card_home";
 import CardImage from "../assets/image 1.svg";
 import Button from "../componentes/Button";
 
-function Home() {
-  const cardArray = Array.from({ length: 8 }, (_, index) => index + 1);
+interface Produto {
+  img: string;
+  titulo: string;
+  descricao: string;
+  valor: string;
+}
+
+interface HomeProps {
+  handleAddToCart: (produto: Produto) => void; // Função para adicionar ao carrinho
+}
+
+function Home({ handleAddToCart }: HomeProps) {
+  const cardArray: Produto[] = [
+    {
+      img: CardImage,
+      titulo: "Syltherine",
+      descricao: "Stylish cafe chair",
+      valor: "Rp 2.500.000",
+    },
+    {
+      img: CardImage,
+      titulo: "Leviosa",
+      descricao: "Modern table",
+      valor: "Rp 3.200.000",
+    },
+    {
+      img: CardImage,
+      titulo: "Lolito",
+      descricao: "Luxury sofa",
+      valor: "Rp 7.000.000",
+    },
+    {
+      img: CardImage,
+      titulo: "Respira",
+      descricao: "Outdoor bar table",
+      valor: "Rp 5.000.000",
+    },
+    {
+      img: CardImage,
+      titulo: "Grifo",
+      descricao: "Dining chair",
+      valor: "Rp 1.500.000",
+    },
+    {
+      img: CardImage,
+      titulo: "Muggo",
+      descricao: "Small mug",
+      valor: "Rp 150.000",
+    },
+    {
+      img: CardImage,
+      titulo: "Pingky",
+      descricao: "Cute bed",
+      valor: "Rp 6.500.000",
+    },
+    {
+      img: CardImage,
+      titulo: "Potty",
+      descricao: "Minimalist flower pot",
+      valor: "Rp 450.000",
+    },
+  ];
+
   return (
     <div>
       <CardHome />
       <div className="z-10">
-        <h2 className="pt-10 text-center font-bold text-2xl ">
+        <h2 className="pt-10 text-center font-bold text-2xl">
           Browse The Range
         </h2>
         <p className="text-center text-[#666666] pt-2">
@@ -23,13 +84,14 @@ function Home() {
           Our Products
         </h2>
         <div className="grid grid-cols-4 gap-10 place-items-center max-w-screen-xl mx-auto z-10">
-          {cardArray.map((_, index) => (
+          {cardArray.map((produto, index) => (
             <Card
               key={index}
-              img={CardImage}
-              titulo="Syltherine"
-              descricao="Stylish cafe chair"
-              valor="Rp 2.500.000"
+              img={produto.img}
+              titulo={produto.titulo}
+              descricao={produto.descricao}
+              valor={produto.valor}
+              addToCart={() => handleAddToCart(produto)} // Passando a função para o Card
             />
           ))}
         </div>

@@ -1,22 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ShoppingCart from "./popup-nav";
 import logo from "../assets/Meubel House_Logos-05 (1).svg";
 import user from "../assets/mdi_account-alert-outline.svg";
 import search from "../assets/akar-icons_search.svg";
 import heart from "../assets/akar-icons_heart.svg";
 import shoppingCar from "../assets/ant-design_shopping-cart-outlined.svg";
-import PopUP from "./popup-nav"; // Importe o componente PopUP
 
-function NavBar() {
+interface Produto {
+  img: string;
+  titulo: string;
+  descricao: string;
+  valor: string;
+}
+
+// Tipando a prop do NavBar corretamente
+interface NavBarProps {
+  cartItems: Produto[];
+}
+
+function NavBar({ cartItems }: NavBarProps) {
   const [cartPopupOpen, setCartPopupOpen] = useState(false);
 
-  const abrirCartPopup = () => {
-    setCartPopupOpen(true);
-  };
-
-  const fecharCartPopup = () => {
-    setCartPopupOpen(false);
-  };
+  const abrirCartPopup = () => setCartPopupOpen(true);
+  const fecharCartPopup = () => setCartPopupOpen(false);
 
   return (
     <div className="w-full pt-6 pb-6 flex justify-between items-center px-20 fixed z-50 bg-white">
@@ -26,22 +33,22 @@ function NavBar() {
       </div>
       <ul className="flex space-x-10">
         <li>
-          <Link to="/" className="text-black  cursor-pointer">
+          <Link to="/" className="text-black">
             Home
           </Link>
         </li>
         <li>
-          <Link to="/shop" className="text-black cursor-pointer">
+          <Link to="/shop" className="text-black">
             Shop
           </Link>
         </li>
         <li>
-          <Link to="/about" className="text-black cursor-pointer">
+          <Link to="/about" className="text-black">
             About
           </Link>
         </li>
         <li>
-          <Link to="/contact" className="text-black cursor-pointer">
+          <Link to="/contact" className="text-black">
             Contact
           </Link>
         </li>
@@ -55,7 +62,7 @@ function NavBar() {
         <img
           src={search}
           alt="Search"
-          className="cursor-pointer  w-[25px] h-[25px]"
+          className="cursor-pointer w-[25px] h-[25px]"
         />
         <img
           src={heart}
@@ -66,10 +73,12 @@ function NavBar() {
           <img
             src={shoppingCar}
             alt="Carrinho de Compras"
-            className="cursor-pointer  w-[25px] h-[25px]"
+            className="cursor-pointer w-[25px] h-[25px]"
             onClick={abrirCartPopup}
           />
-          {cartPopupOpen && <PopUP onClose={fecharCartPopup} />}
+          {cartPopupOpen && (
+            <ShoppingCart cartItems={cartItems} onClose={fecharCartPopup} />
+          )}
         </div>
       </div>
     </div>

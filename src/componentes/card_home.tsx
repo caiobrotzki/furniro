@@ -1,20 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 
-interface CardProps {
+interface Produto {
   img: string;
   titulo: string;
   descricao: string;
   valor: string;
 }
 
-const Card: React.FC<CardProps> = ({ img, titulo, descricao, valor }) => {
+interface CardProps {
+  img: string;
+  titulo: string;
+  descricao: string;
+  valor: string;
+  addToCart: (produto: Produto) => void;
+}
+
+const Card: React.FC<CardProps> = ({
+  img,
+  titulo,
+  descricao,
+  valor,
+  addToCart,
+}) => {
+  const [hovered, setHovered] = useState<boolean>(false);
+
   return (
-    <div className=" bg-[#F4F5F7] w-[285px] h-[446] space-x-4 ">
-      <img src={img} alt={titulo} className="" />
-      <div>
-        <h1 className="font-bold text-2xl pb-1">{titulo}</h1>
-        <p className="text-[#898989] pb-1">{descricao}</p>
-        <p className="font-semibold mb-5">{valor}</p>
+    <div className="relative flex flex-col items-center">
+      <div
+        className="relative w-full"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <img src={img} alt={titulo} className="z-0 rounded-[5px]" />
+        {hovered && (
+          <div className="bg-black bg-opacity-50 w-full absolute inset-0 flex items-center justify-center mt-0 pb-2 rounded-[5px]">
+            <button
+              onClick={() => addToCart({ img, titulo, descricao, valor })}
+              className="bg-white text-black  text-[10px]  py-2 px-4 rounded-[3px]
+                         bg-opacity-90"
+            >
+              Add to cart
+            </button>
+          </div>
+        )}
+      </div>
+      <div className="pl-5 pt-3 flex flex-col align-middle bg-[#F4F5F7] w-[285px] h-[145px]">
+        <h3 className="font-semibold text-2xl">{titulo}</h3>
+        <p className="text-sm">{descricao}</p>
+        <p className="font-bold text-[#B88E2F]">{valor}</p>
       </div>
     </div>
   );
