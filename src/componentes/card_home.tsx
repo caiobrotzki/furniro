@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 interface Produto {
-  key: number;
   img: string;
   titulo: string;
   descricao: string;
@@ -9,16 +8,14 @@ interface Produto {
 }
 
 interface CardProps {
-  key: number;
   img: string;
   titulo: string;
   descricao: string;
   valor: string;
-  addToCart: (produto: Produto) => void; // Garantir que a função addToCart é passada corretamente
+  addToCart?: (produto: Produto) => void; // Garantir que a função addToCart é passada corretamente
 }
 
 const Card: React.FC<CardProps> = ({
-  key,
   img,
   titulo,
   descricao,
@@ -38,7 +35,13 @@ const Card: React.FC<CardProps> = ({
         {hovered && (
           <div className="bg-black bg-opacity-50 w-full absolute inset-0 flex items-center justify-center mt-0 pb-2 rounded-[5px]">
             <button
-              onClick={() => addToCart({ key, img, titulo, descricao, valor })} // Passando corretamente
+              onClick={() => {
+                if (addToCart) {
+                  addToCart({ img, titulo, descricao, valor });
+                } else {
+                  console.log("No addToCart function provided");
+                }
+              }}
               className="bg-white text-black text-[10px] py-2 px-4 rounded-[3px] bg-opacity-90"
             >
               Add to cart
