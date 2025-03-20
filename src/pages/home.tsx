@@ -1,5 +1,4 @@
-import React from "react";
-import CardHome from "./Hoe/components/card";
+import CardHome from "../pages/Hoe/components/card";
 import Section from "./Hoe/components/section";
 import Card from "../componentes/card_home"; // Certifique-se de que o caminho esteja correto
 import CardImage from "../assets/image 1.svg";
@@ -92,7 +91,7 @@ function Home({ handleAddToCart }: HomeProps) {
               titulo={produto.titulo}
               descricao={produto.descricao}
               valor={produto.valor}
-              addToCart={() => handleAddToCart(produto)} // Passando a função para o Card
+              addToCart={handleAddToCart} // Passando a função correta
             />
           ))}
         </div>
