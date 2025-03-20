@@ -1,4 +1,3 @@
-import React from "react";
 import fecharshooping from "../assets/closeshooping.svg";
 import ButtonProp from "./Button";
 
