@@ -1,6 +1,6 @@
 import CardHome from "../pages/Hoe/components/card";
 import Section from "./Hoe/components/section";
-import Card from "../componentes/card_home"; // Certifique-se de que o caminho esteja correto
+import Card from "../componentes/card_home";
 import CardImage from "../assets/image 1.svg";
 import Button from "../componentes/Button";
 
@@ -98,7 +98,7 @@ function Home({ handleAddToCart }: HomeProps) {
         <div className="flex justify-center mt-6 mb-10 z-10">
           <Button
             title="Show More"
-            className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border border-[#B88E2F] border-2"
+            className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border-2 border-[#B88E2F] "
           />
         </div>
       </div>
