@@ -1,5 +1,5 @@
 import React from "react";
-import CardHome from "../pages/Hoe/components/card";
+import CardHome from "./Hoe/components/card";
 import Section from "./Hoe/components/section";
 import Card from "../componentes/card_home"; // Certifique-se de que o caminho esteja correto
 import CardImage from "../assets/image 1.svg";
