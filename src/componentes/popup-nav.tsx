@@ -3,6 +3,7 @@ import fecharshooping from "../assets/closeshooping.svg";
 interface Produto {
   img: string;
   titulo: string;
+  descricao: string;
   valor: string;
 }
 
