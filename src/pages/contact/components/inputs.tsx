@@ -10,6 +10,7 @@ function inputs() {
         name="text"
         className="w-[240pxx] h-[40px] border border-[#9F9F9F] rounded-[10px] text-sl pl-5 mb-8 text-[16px]"
         placeholder="Abc"
+        required
       />
       <h2 className="mb-8 text-[16px]"> Email address</h2>
       <Form
@@ -17,6 +18,7 @@ function inputs() {
         name="text"
         className="w-[240pxx] h-[40px] border border-[#9F9F9F] rounded-[10px] text-sl pl-5 mb-8 text-[16px]"
         placeholder="Abc@def.com"
+        required
       />
       <h2 className="mb-8 text-[16px]"> Subject</h2>
       <Form
@@ -24,6 +26,7 @@ function inputs() {
         name="text"
         className="w-[240pxx] h-[40px] border border-[#9F9F9F] rounded-[10px] text-sl pl-5 mb-8 text-[16px]"
         placeholder="This is an optional"
+        required
       />
       <h2 className="mb-8 text-[16px]"> Message</h2>
       <Form
@@ -31,6 +34,7 @@ function inputs() {
         name="text"
         className="w-[240pxx] h-[90px] border border-[#9F9F9F] rounded-[10px] text-sl pl-5 mb-8 text-[16px]"
         placeholder="Hi! i’d like to ask about"
+        required
       />
       <ButtonProp
         title="Submit"

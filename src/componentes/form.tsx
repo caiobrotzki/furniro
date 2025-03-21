@@ -6,7 +6,8 @@ interface InputProps {
   name: string;
   className: string;
   placeholder?: string;
-  label?: string; // Adicionado 'label' para o texto da label
+  label?: string;
+  required?: boolean; // Corrigido para boolean
 }
 
 const Input: React.FC<InputProps> = ({
@@ -15,15 +16,23 @@ const Input: React.FC<InputProps> = ({
   name,
   className,
   placeholder,
+  required,
+  label,
 }) => {
   return (
     <div>
+      {label && (
+        <label htmlFor={id} className="block mb-2 text-sm">
+          {label}
+        </label>
+      )}
       <input
         type={type}
         id={id}
         name={name}
         className={className}
         placeholder={placeholder}
+        required={required}
       />
     </div>
   );
