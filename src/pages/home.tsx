@@ -3,6 +3,7 @@ import Section from "./Hoe/components/section";
 import Card from "../componentes/card_home";
 import CardImage from "../assets/image 1.svg";
 import Button from "../componentes/Button";
+import { Link } from "react-router-dom";
 
 interface Produto {
   img: string;
@@ -96,10 +97,12 @@ function Home({ handleAddToCart }: HomeProps) {
           ))}
         </div>
         <div className="flex justify-center mt-6 mb-10 z-10">
-          <Button
-            title="Show More"
-            className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border-2 border-[#B88E2F] "
-          />
+          <Link to="/shop">
+            <Button
+              title="Show More"
+              className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border-2 border-[#B88E2F] "
+            />
+          </Link>
         </div>
       </div>
     </div>
