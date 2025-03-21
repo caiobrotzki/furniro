@@ -1,5 +1,6 @@
 import ImagemHome from "../../../assets/scandinavian-interior-mockup-wall-decal-background 1.svg";
 import Button from "../../../componentes/Button";
+import { Link } from "react-router-dom";
 
 function Card() {
   return (
@@ -15,10 +16,12 @@ function Card() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
           facilis architecto consequuntur.
         </p>
-        <Button
-          className="bg-[#B88E2F] w-[222px] h-[74px] text-white"
-          title={"BUY NOW"}
-        />
+        <Link to="/shop">
+          <Button
+            className="bg-[#B88E2F] w-[222px] h-[74px] text-white"
+            title={"BUY NOW"}
+          />
+        </Link>
       </div>
     </div>
   );

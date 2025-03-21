@@ -1,4 +1,6 @@
 import fecharshooping from "../assets/closeshooping.svg";
+import ButtonProp from "./Button";
+import { Link } from "react-router-dom";
 
 interface Produto {
   img: string;
@@ -13,11 +15,12 @@ interface ShoppingCartProps {
 }
 
 function ShoppingCart({ cartItems, onClose }: ShoppingCartProps) {
-  const total = cartItems.reduce(
-    (sum: number, item: Produto) =>
-      sum + parseFloat(item.valor.replace(/\D/g, "")),
-    0
-  );
+  const total = cartItems.reduce((sum: number, item: Produto) => {
+    const numericValue = parseFloat(
+      item.valor.replace(/[^\d,.-]/g, "").replace(",", ".")
+    );
+    return sum + (isNaN(numericValue) ? 0 : numericValue);
+  }, 0);
 
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex">
@@ -52,8 +55,15 @@ function ShoppingCart({ cartItems, onClose }: ShoppingCartProps) {
 
         <div className="mt-4">
           <p className="font-bold text-right">
-            Total: Rp {total.toLocaleString()}
+            Total: Rp {total.toLocaleString("id-ID")}{" "}
           </p>
+          <Link to="/shop">
+            <ButtonProp
+              title="Keep shopping"
+              className="w-full text-center bg-[#B88E2F] rounded-[3px] text-white"
+              onClick={onClose}
+            />
+          </Link>
         </div>
       </div>
     </div>
