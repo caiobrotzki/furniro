@@ -7,7 +7,7 @@ interface InputProps {
   className: string;
   placeholder?: string;
   label?: string;
-  required?: boolean; // Corrigido para boolean
+  required?: boolean;
 }
 
 const Input: React.FC<InputProps> = ({
