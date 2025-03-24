@@ -13,7 +13,7 @@ interface Produto {
 }
 
 interface HomeProps {
-  handleAddToCart: (produto: Produto) => void; // Função para adicionar ao carrinho
+  handleAddToCart: (produto: Produto) => void;
 }
 
 function Home({ handleAddToCart }: HomeProps) {

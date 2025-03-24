@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./componentes/footer";
 import Shop from "./pages/shop";
 
-// Tipando o Produto
 interface Produto {
   img: string;
   titulo: string;
@@ -19,7 +18,6 @@ interface Produto {
 function App() {
   const [cartItems, setCartItems] = useState<Produto[]>([]); // Estado do carrinho
 
-  // Função para adicionar um item ao carrinho
   const handleAddToCart = (produto: Produto) => {
     setCartItems((prevCarrinho) => [...prevCarrinho, produto]);
   };
