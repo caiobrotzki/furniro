@@ -32,6 +32,7 @@ const Card: React.FC<CardProps> = ({ produto, addToCart }) => {
               onClick={() => {
                 if (addToCart) {
                   addToCart(produto); // Passando produto diretamente
+                  alert("O seu item foi adicionado ao carrinho de compras");
                 } else {
                   console.log("No addToCart function provided");
                 }
