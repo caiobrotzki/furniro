@@ -7,6 +7,8 @@ import Contact from "./pages/Contact";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./componentes/footer";
 import Shop from "./pages/shop";
+import Login from "./pages/login";
+import CreateAcount from "./pages/Create_Acount";
 
 interface Produto {
   img: string;
@@ -37,6 +39,8 @@ function App() {
             path="/shop"
             element={<Shop handleAddToCart={handleAddToCart} />}
           />
+          <Route path="/login" element={<Login />} />
+          <Route path="/createAcount" element={<CreateAcount />} />
         </Routes>
         <Footer />
       </Router>

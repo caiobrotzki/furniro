@@ -14,7 +14,6 @@ interface Produto {
   valor: string;
 }
 
-// Tipando a prop do NavBar corretamente
 interface NavBarProps {
   cartItems: Produto[];
 }
@@ -54,11 +53,14 @@ function NavBar({ cartItems }: NavBarProps) {
         </li>
       </ul>
       <div className="flex items-center space-x-10 relative">
-        <img
-          src={user}
-          alt="User"
-          className="cursor-pointer w-[25px] h-[25px]"
-        />
+        <Link to={"/login"}>
+          <img
+            src={user}
+            alt="User"
+            className="cursor-pointer w-[25px] h-[25px]"
+          />
+        </Link>
+
         <img
           src={search}
           alt="Search"
