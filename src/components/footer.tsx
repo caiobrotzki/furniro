@@ -18,7 +18,7 @@ function Footer() {
         <div>
           <ul className="grid pl-20 pr-3 ml-10 gap-8 font-semibold">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li>
               <Link to="/Shop">Shop</Link>

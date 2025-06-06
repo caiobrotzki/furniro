@@ -32,7 +32,7 @@ function NavBar({ cartItems }: NavBarProps) {
       </div>
       <ul className="flex space-x-10">
         <li>
-          <Link to="/" className="text-black">
+          <Link to="/home" className="text-black">
             Home
           </Link>
         </li>
@@ -53,13 +53,11 @@ function NavBar({ cartItems }: NavBarProps) {
         </li>
       </ul>
       <div className="flex items-center space-x-10 relative">
-        <Link to={"/login"}>
-          <img
-            src={user}
-            alt="User"
-            className="cursor-pointer w-[25px] h-[25px]"
-          />
-        </Link>
+        <img
+          src={user}
+          alt="User"
+          className="cursor-pointer w-[25px] h-[25px]"
+        />
 
         <img
           src={search}

@@ -15,7 +15,6 @@ export default function Screen() {
   const inputArray = [
     {
       name: "Email",
-      placeholder: "Email",
       className:
         "w-[440px] h-[40px]  rounded-[5px] mb-4 text-sl pl-5  text-[16px]",
     },
@@ -43,7 +42,7 @@ export default function Screen() {
     });
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      navigate("/");
+      navigate("/home");
     }
   };
 
