@@ -32,7 +32,7 @@ export default function Screen() {
   ];
 
   return (
-    <div className="absolute top-1/4 right-20 w-[900px] md:w-2/6 bg-[#FFF3E3] p-10 z-20 ">
+    <div className="absolute top-1/4 right-20 w-[900px] md:w-2/6 bg-[#FFF3E3] p-10 z-20 shadow-2xl ">
       <h1 className="text-center font-semibold text-[40px] mb-4">
         Create Acount
       </h1>

@@ -2,6 +2,7 @@ import Fundo from "./shop/components/fundo";
 import Nav from "./shop/components/secondnavbar";
 import Card from "./shop/components/card";
 import CardImage from "../assets/image 1.svg";
+import Footer from "../componentes/footer";
 
 interface Produto {
   img: string;
@@ -130,6 +131,7 @@ function Shop({ handleAddToCart }: ShopProps) {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

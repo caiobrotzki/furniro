@@ -4,6 +4,7 @@ import Card from "../componentes/card_home";
 import CardImage from "../assets/image 1.svg";
 import Button from "../componentes/Button";
 import { Link } from "react-router-dom";
+import Footer from "../componentes/footer";
 
 interface Produto {
   img: string;
@@ -105,6 +106,7 @@ function Home({ handleAddToCart }: HomeProps) {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

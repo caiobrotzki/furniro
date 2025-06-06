@@ -1,9 +1,17 @@
+import React, { useState } from "react";
 import Input from "../../componentes/form";
 import ButtonProp from "../../componentes/Button";
 import { AppleLogo, GoogleLogo, FacebookLogo } from "phosphor-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Screen() {
+  const [values, setValues] = useState<{ [key: string]: string }>({
+    Email: "",
+    Password: "",
+  });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const navigate = useNavigate();
+
   const inputArray = [
     {
       name: "Email",
@@ -19,27 +27,59 @@ export default function Screen() {
     },
   ];
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const newErrors: { [key: string]: string } = {};
+    inputArray.forEach((input) => {
+      if (!values[input.name]) {
+        newErrors[input.name] = "Campo obrigatório";
+      }
+    });
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length === 0) {
+      navigate("/");
+    }
+  };
+
   return (
-    <div className="absolute top-1/4 right-20 w-[900px] md:w-2/6 bg-[#FFF3E3] p-10 z-20 ">
+    <div className="absolute top-1/4 right-20 w-[900px] md:w-2/6 bg-[#FFF3E3] p-10 z-20 shadow-2xl ">
       <h1 className="text-center font-semibold text-[40px] mb-4">Login</h1>
-      <div>
-        {inputArray.map((input, index) => (
-          <Input
-            key={index}
-            name={input.name}
-            placeholder={input.placeholder}
-            className={input.className}
-            type={input.name.toLowerCase() === "password" ? "password" : "text"}
-            id={input.name.toLowerCase()}
+      <form onSubmit={handleSubmit}>
+        <div>
+          {inputArray.map((input, index) => (
+            <div key={index}>
+              <Input
+                name={input.name}
+                placeholder={input.placeholder}
+                className={input.className}
+                type={
+                  input.name.toLowerCase() === "password" ? "password" : "text"
+                }
+                id={input.name.toLowerCase()}
+                value={values[input.name]}
+                onChange={handleChange}
+              />
+              {errors[input.name] && (
+                <span className="text-red-500 text-xs ml-2">
+                  {errors[input.name]}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center">
+          <ButtonProp
+            title="Login"
+            className="bg-[#B88E2F] w-[250px] h-[54px] text-white rounded-[5px] "
           />
-        ))}
-      </div>
-      <div className="flex justify-center">
-        <ButtonProp
-          title="Login"
-          className="bg-[#B88E2F] w-[250px] h-[54px] text-white rounded-[5px] "
-        />
-      </div>
+        </div>
+      </form>
       <div>
         <h1 className="mt-5 text-center">Or</h1>
       </div>

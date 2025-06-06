@@ -1,13 +1,8 @@
 import React from "react";
 
-interface InputProps {
-  type?: string;
-  id?: string;
-  name: string;
-  className: string;
-  placeholder?: string;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  required?: boolean;
+  className: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -18,6 +13,9 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   required,
   label,
+  value,
+  onChange,
+  ...rest
 }) => {
   return (
     <div>
@@ -33,6 +31,9 @@ const Input: React.FC<InputProps> = ({
         className={className}
         placeholder={placeholder}
         required={required}
+        value={value}
+        onChange={onChange}
+        {...rest}
       />
     </div>
   );

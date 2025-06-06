@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Home from "./pages/home";
 import Contact from "./pages/Contact";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Footer from "./componentes/footer";
+// import Footer from "./componentes/footer";
 import Shop from "./pages/shop";
 import Login from "./pages/login";
 import CreateAcount from "./pages/Create_Acount";
@@ -42,7 +42,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/createAcount" element={<CreateAcount />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );
