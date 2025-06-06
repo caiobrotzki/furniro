@@ -1,5 +1,5 @@
-import Form from "../../../componentes/form";
-import ButtonProp from "../../../componentes/Button";
+import Form from "../../../components/form";
+import ButtonProp from "../../../components/Button";
 
 function inputs() {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Input from "../../componentes/form";
-import ButtonProp from "../../componentes/Button";
+import Input from "../../components/form";
+import ButtonProp from "../../components/Button";
 import { AppleLogo, GoogleLogo, FacebookLogo } from "phosphor-react";
 import { Link, useNavigate } from "react-router-dom";
 

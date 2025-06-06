@@ -1,7 +1,7 @@
 import Fundo from "./contact/components/fundo";
 import Content from "./contact/components/content";
 import Inputs from "./contact/components/inputs";
-import Footer from "../componentes/footer";
+import Footer from "../components/footer";
 
 function Contact() {
   return (

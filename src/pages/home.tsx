@@ -1,10 +1,10 @@
 import CardHome from "../pages/Hoe/components/card";
 import Section from "./Hoe/components/section";
-import Card from "../componentes/card_home";
+import Card from "../components/card_home";
 import CardImage from "../assets/image 1.svg";
-import Button from "../componentes/Button";
+import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import Footer from "../componentes/footer";
+import Footer from "../components/footer";
 
 interface Produto {
   img: string;

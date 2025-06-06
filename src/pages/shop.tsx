@@ -2,7 +2,7 @@ import Fundo from "./shop/components/fundo";
 import Nav from "./shop/components/secondnavbar";
 import Card from "./shop/components/card";
 import CardImage from "../assets/image 1.svg";
-import Footer from "../componentes/footer";
+import Footer from "../components/footer";
 
 interface Produto {
   img: string;

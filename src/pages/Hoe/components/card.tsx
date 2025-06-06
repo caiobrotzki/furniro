@@ -1,5 +1,5 @@
 import ImagemHome from "../../../assets/scandinavian-interior-mockup-wall-decal-background 1.svg";
-import Button from "../../../componentes/Button";
+import Button from "../../../components/Button";
 import { Link } from "react-router-dom";
 
 function Card() {
