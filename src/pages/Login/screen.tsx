@@ -15,14 +15,15 @@ export default function Screen() {
   const inputArray = [
     {
       name: "Email",
+      placeholder: "Email",
       className:
-        "w-[440px] h-[40px]  rounded-[5px] mb-4 text-sl pl-5  text-[16px]",
+        "w-[350px] h-[40px]  rounded-[5px] mb-4 text-sl pl-5  text-[16px]",
     },
     {
       name: "Password",
       placeholder: "Password",
       className:
-        "w-[440px] h-[40px]  rounded-[5px] text-sl pl-5 mb-8 text-[16px]",
+        "w-[350px] h-[40px]  rounded-[5px] text-sl pl-5 mb-8 text-[16px]",
     },
   ];
 
