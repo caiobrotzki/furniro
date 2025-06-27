@@ -2,11 +2,13 @@ import img from "../assets/scandinavian-interior-mockup-wall-decal-background 1.
 import Screen from "./CreateAcount/screen";
 export default function CreateAcount() {
   return (
-    <div>
-      <div>
-        <img src={img} alt="" className="w-full z-0 blur-sm" />
-      </div>
-      <div>
+    <div className="relative min-h-screen h-screen">
+      <img
+        src={img}
+        alt=""
+        className="fixed inset-0 w-full h-full object-cover z-0 blur-sm"
+      />
+      <div className="relative z-10">
         <Screen />
       </div>
     </div>

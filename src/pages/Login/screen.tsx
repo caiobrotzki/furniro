@@ -3,6 +3,7 @@ import Input from "../../components/form";
 import ButtonProp from "../../components/Button";
 import { AppleLogo, GoogleLogo, FacebookLogo } from "phosphor-react";
 import { Link, useNavigate } from "react-router-dom";
+import Logo from "../../assets/Meubel House_Logos-05 (1).svg"; // ajuste o caminho se necessário
 
 export default function Screen() {
   const [values, setValues] = useState<{ [key: string]: string }>({
@@ -17,13 +18,13 @@ export default function Screen() {
       name: "Email",
       placeholder: "Email",
       className:
-        "w-full md:w-[450px] h-[40px] rounded-[5px] mb-4 text-sl pl-5 text-[16px]",
+        "w-full h-[44px] rounded-lg mb-4 text-base pl-5 bg-white bg-opacity-80 border border-[#e5e7eb] focus:outline-none focus:ring-2 focus:ring-[#B88E2F] transition",
     },
     {
       name: "Password",
       placeholder: "Password",
       className:
-        "w-full md:w-[450px] h-[40px] rounded-[5px] text-sl pl-5 mb-8 text-[16px]",
+        "w-full h-[44px] rounded-lg text-base pl-5 mb-8 bg-white bg-opacity-80 border border-[#e5e7eb] focus:outline-none focus:ring-2 focus:ring-[#B88E2F] transition",
     },
   ];
 
@@ -48,10 +49,21 @@ export default function Screen() {
   };
 
   return (
-    <div className="absolute top-1/4 right-20 w-2/6 bg-[#FFF3E3] p-10 z-20 shadow-2xl  ">
-      <h1 className="text-center font-semibold text-[40px] mb-4">Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="relative min-h-screen flex items-center justify-center">
+      {/* Formulário de login */}
+      <div className="animate-fade-in w-full max-w-md mx-auto bg-[#FFF3E3]/80 backdrop-blur-lg p-10 rounded-2xl z-30 shadow-2xl border border-[#f3e9d7] flex flex-col items-center">
+        <img
+          src={Logo}
+          alt="Logo"
+          className="h-[48px] w-[48px] mb-2 md:hidden"
+        />
+        <span className="text-4xl font-bold text-[#B88E2F] mb-6 md:hidden">
+          Furniro
+        </span>
+        <h1 className="text-center font-extrabold text-[32px] mb-6 text-[#B88E2F] drop-shadow">
+          Login
+        </h1>
+        <form onSubmit={handleSubmit} className="w-full">
           {inputArray.map((input, index) => (
             <div key={index}>
               <Input
@@ -72,36 +84,50 @@ export default function Screen() {
               )}
             </div>
           ))}
+          <div className="flex justify-center mt-2">
+            <ButtonProp
+              title="Login"
+              className="bg-[#B88E2F] w-full h-[48px] text-white rounded-lg font-semibold text-lg shadow hover:bg-[#a67c1a] transition"
+            />
+          </div>
+        </form>
+        <div>
+          <h1 className="mt-6 text-center text-[#B88E2F] font-semibold">Ou</h1>
         </div>
-        <div className="flex justify-center">
-          <ButtonProp
-            title="Login"
-            className="bg-[#B88E2F] w-[250px] h-[54px] text-white rounded-[5px] "
-          />
+        <div>
+          <ul className="flex space-x-6 justify-center mt-4">
+            <li>
+              <AppleLogo className="text-[36px] bg-white rounded-full text-black shadow hover:scale-110 transition" />
+            </li>
+            <li>
+              <GoogleLogo className="text-[36px] rounded-full text-[#EA4335] shadow hover:scale-110 transition" />
+            </li>
+            <li>
+              <FacebookLogo className="text-[36px] bg-[#1877F2] rounded-full text-white shadow hover:scale-110 transition" />
+            </li>
+          </ul>
         </div>
-      </form>
-      <div>
-        <h1 className="mt-5 text-center">Or</h1>
+        <div className="flex text-xs justify-center mt-6">
+          <p>New to Furniro?</p>
+          <Link to="/createAcount">
+            <p className="text-[#B88E2F] underline cursor-pointer">
+              Crie uma conta
+            </p>
+          </Link>
+        </div>
       </div>
-      <div>
-        <ul className="flex space-x-5 ml-[144px] mt-4 ">
-          <li>
-            <AppleLogo className="text-[40px] bg-[#FFF3E3] rounded-full text-black " />
-          </li>
-          <li>
-            <GoogleLogo className="text-[40px] rounded-full text-[#EA4335]" />
-          </li>
-          <li>
-            <FacebookLogo className="text-[40px]  bg-[#1877F2] rounded-full text-white" />
-          </li>
-        </ul>
-      </div>
-      <div className="flex text-xs justify-center mt-4">
-        <p>New to modimal? </p>
-        <Link to="/createAcount">
-          <p className="text-[#B88E2F]">create an account</p>
-        </Link>
-      </div>
+      {/* Animação fade-in */}
+      <style>
+        {`
+          .animate-fade-in {
+            animation: fadeIn 0.9s cubic-bezier(.4,0,.2,1) both;
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+          }
+        `}
+      </style>
     </div>
   );
 }

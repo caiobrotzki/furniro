@@ -122,16 +122,36 @@ function Shop({ handleAddToCart }: ShopProps) {
         <Nav />
       </div>
       <div className="mt-10 z-10">
-        <h2 className="text-center text-3xl font-bold pt-5 pb-7">
+        <h2 className="text-center text-3xl font-bold pt-5 pb-7 animate-fade-in">
           Our Products
         </h2>
-        <div className="grid grid-cols-4 gap-10 place-items-center max-w-screen-xl mx-auto z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 place-items-center max-w-screen-xl mx-auto z-10">
           {cardArray.map((produto, index) => (
-            <Card key={index} produto={produto} addToCart={handleAddToCart} />
+            <div
+              key={index}
+              className="animate-fade-in"
+              style={{
+                animationDelay: `${0.1 + index * 0.07}s`,
+                animationFillMode: "both",
+              }}
+            >
+              <Card produto={produto} addToCart={handleAddToCart} />
+            </div>
           ))}
         </div>
       </div>
       <Footer />
+      <style>
+        {`
+          .animate-fade-in {
+            animation: fadeIn 0.8s cubic-bezier(.4,0,.2,1) both;
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+          }
+        `}
+      </style>
     </div>
   );
 }

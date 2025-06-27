@@ -107,6 +107,17 @@ function Home({ handleAddToCart }: HomeProps) {
         </div>
       </div>
       <Footer />
+      <style>
+        {`
+          .animate-fade-in {
+            animation: fadeIn 0.9s cubic-bezier(.4,0,.2,1) both;
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+          }
+        `}
+      </style>
     </div>
   );
 }
