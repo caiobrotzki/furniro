@@ -17,13 +17,13 @@ export default function Screen() {
       name: "Email",
       placeholder: "Email",
       className:
-        "w-[350px] h-[40px]  rounded-[5px] mb-4 text-sl pl-5  text-[16px]",
+        "w-full md:w-[450px] h-[40px] rounded-[5px] mb-4 text-sl pl-5 text-[16px]",
     },
     {
       name: "Password",
       placeholder: "Password",
       className:
-        "w-[350px] h-[40px]  rounded-[5px] text-sl pl-5 mb-8 text-[16px]",
+        "w-full md:w-[450px] h-[40px] rounded-[5px] text-sl pl-5 mb-8 text-[16px]",
     },
   ];
 
@@ -48,7 +48,7 @@ export default function Screen() {
   };
 
   return (
-    <div className="absolute top-1/4 right-20 w-[900px] md:w-2/6 bg-[#FFF3E3] p-10 z-20 shadow-2xl ">
+    <div className="absolute top-1/4 right-20 w-2/6 bg-[#FFF3E3] p-10 z-20 shadow-2xl  ">
       <h1 className="text-center font-semibold text-[40px] mb-4">Login</h1>
       <form onSubmit={handleSubmit}>
         <div>
