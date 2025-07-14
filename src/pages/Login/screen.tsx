@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Input from "../../components/form";
 import ButtonProp from "../../components/Button";
 import { Envelope, Lock } from "phosphor-react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Meubel House_Logos-05 (1).svg";
 
-// Interfaces para tipagem
+// Interfaces para tipagem dos valores e erros do formulário
 interface FormValues {
   Email: string;
   Password: string;
@@ -13,40 +13,57 @@ interface FormValues {
 type FormErrors = Partial<FormValues>;
 
 const Screen: React.FC = () => {
+  // Estados para gerenciar os dados do formulário e as mensagens de erro
   const [values, setValues] = useState<FormValues>({ Email: "", Password: "" });
   const [errors, setErrors] = useState<FormErrors>({});
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook para navegar entre as páginas
 
-  // Verifica se o usuário já está logado ao carregar a página
+  // --- VERIFICAÇÃO DE LOGIN DESATIVADA ---
+  // O bloco de código abaixo foi "comentado" para que você possa sempre ver o formulário de login.
+  // Isso é útil durante o desenvolvimento do visual da página.
+  // Para reativar o login automático para usuários que já estão autenticados,
+  // simplesmente remova os marcadores '/*' no início e '*/' no final do bloco.
+  /*
   useEffect(() => {
     const token = localStorage.getItem("auth-token");
     if (token) {
       navigate("/home");
     }
   }, [navigate]);
+  */
 
+  // Função para atualizar o estado sempre que o usuário digita em um campo
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" }); // Limpa o erro ao digitar
+    setErrors({ ...errors, [e.target.name]: "" }); // Limpa o erro do campo ao ser modificado
   };
 
+  // Função executada quando o formulário é enviado
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault(); // Impede o recarregamento padrão da página
     const newErrors: FormErrors = {};
+
+    // Validação dos campos
     if (!values.Email) newErrors.Email = "O email é obrigatório";
     if (!values.Password) newErrors.Password = "A senha é obrigatória";
 
-    setErrors(newErrors);
+    setErrors(newErrors); // Atualiza o estado de erros
 
+    // Se não houver erros, prossiga com a lógica de login
     if (Object.keys(newErrors).length === 0) {
-      // Lógica de login (ex: chamada de API)
-      // Simulando sucesso:
-      localStorage.setItem("auth-token", "token_simulado_123");
+      console.log("Formulário válido. Simulando login...");
+      // Lógica de login real (ex: chamada para uma API) iria aqui.
+      //
+      // Para este exemplo, estamos simulando um login bem-sucedido:
+      // 1. Salvamos um token falso no armazenamento do navegador.
+      localStorage.setItem("auth-token", "token_simulado_12345");
+      // 2. Redirecionamos o usuário para a página principal.
       navigate("/home");
     }
   };
 
   return (
+    // Card principal do formulário com animação
     <div className="animate-fade-in w-full max-w-sm bg-white/90 backdrop-blur-xl p-6 rounded-2xl z-30 shadow-2xl border border-white/20 flex flex-col items-center">
       <img src={Logo} alt="Logo Furniro" className="h-10 w-10 mb-1" />
       <span className="text-xl font-bold text-[#B88E2F]">Furniro</span>
@@ -57,8 +74,9 @@ const Screen: React.FC = () => {
         Acesse sua conta para continuar.
       </p>
 
+      {/* Formulário */}
       <form onSubmit={handleSubmit} className="w-full">
-        {/* Email */}
+        {/* Campo de Email */}
         <div className="mb-2">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -81,7 +99,7 @@ const Screen: React.FC = () => {
           )}
         </div>
 
-        {/* Senha */}
+        {/* Campo de Senha */}
         <div className="mb-2">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -104,6 +122,7 @@ const Screen: React.FC = () => {
           )}
         </div>
 
+        {/* Botão de Entrar */}
         <div className="flex justify-center mt-4">
           <ButtonProp
             title="Entrar"
@@ -112,6 +131,7 @@ const Screen: React.FC = () => {
         </div>
       </form>
 
+      {/* Link para a página de Criar Conta */}
       <div className="flex text-xs justify-center mt-4 text-gray-600">
         <p>Não tem uma conta?</p>
         <Link
@@ -122,7 +142,16 @@ const Screen: React.FC = () => {
         </Link>
       </div>
 
-      <style>{`.animate-fade-in { animation: fadeIn 0.8s cubic-bezier(.4,0,.2,1) both; } @keyframes fadeIn { from { opacity: 0; transform: translateY(30px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }`}</style>
+      {/* Estilos para a animação de fade-in */}
+      <style>{`
+        .animate-fade-in {
+          animation: fadeIn 0.8s cubic-bezier(.4,0,.2,1) both;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(30px) scale(0.98); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+      `}</style>
     </div>
   );
 };
