@@ -4,7 +4,7 @@ import Button from "./Button";
 
 function Footer() {
   return (
-    <div className="border-t border-t-4 mt-10 w-full p-4">
+    <div className="border-t-4 mt-10 w-full p-4">
       <div className="mt-5 flex items-center ml-40 space-x-20">
         <h1 className="font-bold text-2xl mr-40">Funiro.</h1>
         <p className="pr-10 pl-20 text-[#9F9F9F]">Links</p>
@@ -42,7 +42,7 @@ function Footer() {
           <Input
             type="text"
             name="enter_email"
-            className="border-b border-b-black border-b-2 text-start"
+            className="border-b-black border-b-2 text-start"
             placeholder="Enter Your Email Address"
           />
           <Button

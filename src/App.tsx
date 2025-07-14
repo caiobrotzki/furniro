@@ -1,19 +1,18 @@
 import { useState } from "react";
-import "./App.css";
-import NavBar from "./components/NavBar";
-import About from "./pages/About";
-import Home from "./pages/home";
-import Contact from "./pages/Contact";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
 } from "react-router-dom";
-// import Footer from "./componentes/footer";
+
+import Home from "./pages/home";
 import Shop from "./pages/shop";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Login from "./pages/login";
 import CreateAcount from "./pages/Create_Acount";
+import NavBar from "./components/NavBar";
 
 interface Produto {
   img: string;
@@ -25,12 +24,10 @@ interface Produto {
 function AppContent() {
   const [cartItems, setCartItems] = useState<Produto[]>([]);
   const location = useLocation();
-
   const handleAddToCart = (produto: Produto) => {
-    setCartItems((prevCarrinho) => [...prevCarrinho, produto]);
+    setCartItems((prevItems) => [...prevItems, produto]);
+    console.log("Produto adicionado ao carrinho:", produto);
   };
-
-  // Não mostrar NavBar na tela de login ou criar conta
   const hideNavBar =
     location.pathname === "/" || location.pathname === "/createAcount";
 
@@ -38,20 +35,19 @@ function AppContent() {
     <div>
       {!hideNavBar && <NavBar cartItems={cartItems} />}
       <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/createAcount" element={<CreateAcount />} />
         <Route
           path="/home"
           element={<Home handleAddToCart={handleAddToCart} />}
         />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
         <Route
           path="/shop"
           element={<Shop handleAddToCart={handleAddToCart} />}
         />
-        <Route path="/" element={<Login />} />
-        <Route path="/createAcount" element={<CreateAcount />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
-      {/* <Footer /> */}
     </div>
   );
 }
