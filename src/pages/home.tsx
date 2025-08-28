@@ -100,7 +100,7 @@ function Home() {
           <Link to="/shop">
             <Button
               title="Show More"
-              className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border-2 border-[#B88E2F]"
+              className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border-2 border-[#B88E2F] hover:bg-[#B88E2F] hover:text-white rounded-lg hover:scale-105 transform transition-all duration-300"
             />
           </Link>
         </div>

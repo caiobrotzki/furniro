@@ -30,27 +30,23 @@ function AppContent() {
     console.log("Produto adicionado ao carrinho:", produto);
   };
 
-  // Função para remover item pelo índice
   const handleRemoveItem = (index: number) => {
     setCartItems((prevItems) => prevItems.filter((_, i) => i !== index));
   };
 
   const hideNavBar =
-    location.pathname === "/l" || location.pathname === "/createAcount";
+    location.pathname === "/" || location.pathname === "/createAcount";
 
   return (
     <div>
       {!hideNavBar && (
-        <NavBar
-          cartItems={cartItems}
-          onRemoveItem={handleRemoveItem} // Passa a função aqui
-        />
+        <NavBar cartItems={cartItems} onRemoveItem={handleRemoveItem} />
       )}
 
       <Routes>
-        <Route path="/l" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/createAcount" element={<CreateAcount />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop handleAddToCart={handleAddToCart} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React  from "react";
+import { ShoppingCart } from "phosphor-react";
 
 interface Produto {
   img: string;
@@ -13,7 +14,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ produto, addToCart }) => {
-  const [hovered, setHovered] = useState(false);
+ 
 
   const handleAddToCart = () => {
     if (addToCart) {
@@ -24,32 +25,34 @@ const Card: React.FC<CardProps> = ({ produto, addToCart }) => {
   };
 
   return (
-    <div className="relative flex flex-col items-center">
-      <div
-        className="relative w-full"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        <img
-          src={produto.img}
-          alt={produto.titulo}
-          className="z-0 rounded-[5px]"
-        />
-        {hovered && (
-          <div className="bg-black bg-opacity-50 w-full absolute inset-0 flex items-center justify-center mt-0 pb-2 rounded-[5px]">
-            <button
-              onClick={handleAddToCart}
-              className="bg-white text-black text-[10px] py-2 px-4 rounded-[3px] bg-opacity-90"
-            >
-              Add to cart
-            </button>
-          </div>
-        )}
-      </div>
-      <div className="pl-5 pt-3 flex flex-col align-middle bg-[#F4F5F7] w-[285px] h-[145px]">
-        <h3 className="font-semibold text-2xl">{produto.titulo}</h3>
-        <p className="text-sm">{produto.descricao}</p>
-        <p className="font-bold text-[#B88E2F]">{produto.valor}</p>
+    <div
+      className="relative flex flex-col items-center bg-[#F4F5F7] rounded-[5px] shadow-md overflow-hidden w-[285px] hover:scale-105 transform transition-all duration-30"
+    >
+      <img
+        src={produto.img}
+        alt={produto.titulo}
+        className="w-full h-[280px] object-cover rounded-t-[5px]"
+      />
+
+      <div className="p-4 flex flex-col flex-grow w-full">
+        <h3 className="font-semibold text-2xl mb-1">{produto.titulo}</h3>
+        <p className="text-sm flex-grow">{produto.descricao}</p>
+        <div className="mt-3 flex flex-col justify-between">
+          <p className="font-bold text-[#B88E2F] text-xl">{produto.valor}</p>
+
+          <button
+            onClick={handleAddToCart}
+            className={`
+              flex text-center mt-4 items-center gap-1 justify-center bg-[#B88E2F] 
+              hover:bg-[#a17b28]  text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:scale-105 transform transition-all duration-30
+              
+            `}
+            aria-label={`Adicionar ${produto.titulo} ao carrinho`}
+          >
+            <ShoppingCart size={20} weight="bold" />
+            Adicionar
+          </button>
+        </div>
       </div>
     </div>
   );

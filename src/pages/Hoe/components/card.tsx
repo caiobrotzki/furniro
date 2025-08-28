@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 function Card() {
   return (
-    <div className="relative flex items-center justify-center min-h-[420px]">
+    <div className="relative flex items-center justify-center min-h-[420px] ">
       <img
         src={ImagemHome}
         alt="Imagem"
-        className="w-full mt-7 z-0 object-cover rounded-3xl shadow-xl transition-all duration-500"
+        className="w-full mt-7  object-cover  rounded-3xl shadow-xl transition-all duration-500"
       />
       <div className="absolute  right-0 md:right-10 -translate-y-1/2 w-full md:w-2/6 bg-[#FFF3E3] bg-opacity-95 p-8 md:p-10 rounded-2xl z-20 shadow-2xl border border-[#f3e9d7] flex flex-col items-start animate-fade-in">
         <p className="font-semibold tracking-widest text-sm text-[#B88E2F] mb-2 uppercase">

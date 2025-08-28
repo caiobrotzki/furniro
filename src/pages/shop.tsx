@@ -121,7 +121,7 @@ function Shop({ handleAddToCart }: ShopProps) {
   const handleAdd = (produto: Produto) => {
     handleAddToCart(produto);
     toast.success(
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <span className="font-bold">{`${produto.titulo} adicionado ao carrinho!`}</span>
         <span>{`Preço: ${produto.valor}`}</span>
       </div>,
@@ -136,9 +136,9 @@ function Shop({ handleAddToCart }: ShopProps) {
       <Fundo />
       <Nav />
 
-      {/* Componente Toaster para mostrar toasts */}
+      
       <Toaster
-        position="top-right" // <-- Alterado aqui para o canto direito
+        position="top-right" 
         richColors
         toastOptions={{
           className:
