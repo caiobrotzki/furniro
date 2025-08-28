@@ -2,11 +2,27 @@ import Fundo from "./contact/components/fundo";
 import Content from "./contact/components/content";
 import Inputs from "./contact/components/inputs";
 import Footer from "../components/footer";
+import { useState } from "react";
 
 function Contact() {
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleFormSuccess = () => {
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 3000);
+  };
+
   return (
-    <div className="bg-[#FFFFF] min-h-screen">
+    <div className="bg-[#FFFFF] min-h-screen relative">
+      {/* Mensagem fixa no topo da tela */}
+      {showSuccess && (
+        <div className="fixed top-[100px] left-1/2 transform -translate-x-1/2 w-[320px] bg-green-500 text-white px-6 py-4 rounded-lg text-center shadow-lg z-[9999]">
+          Sua mensagem foi enviada!
+        </div>
+      )}
+
       <Fundo />
+
       <div className="max-w-6xl mx-auto px-4">
         <div className="mt-5 flex flex-col items-center animate-fade-in">
           <h1 className="text-center font-bold text-3xl md:text-4xl drop-shadow">
@@ -29,11 +45,14 @@ function Contact() {
             className="w-full md:w-auto flex justify-center animate-fade-in"
             style={{ animationDelay: "0.2s", animationFillMode: "both" }}
           >
-            <Inputs />
+            {/* Passa a função de sucesso como prop */}
+            <Inputs onSuccess={handleFormSuccess} />
           </div>
         </div>
       </div>
+
       <Footer />
+
       <style>
         {`
           .animate-fade-in {

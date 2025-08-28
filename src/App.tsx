@@ -24,27 +24,34 @@ interface Produto {
 function AppContent() {
   const [cartItems, setCartItems] = useState<Produto[]>([]);
   const location = useLocation();
+
   const handleAddToCart = (produto: Produto) => {
     setCartItems((prevItems) => [...prevItems, produto]);
     console.log("Produto adicionado ao carrinho:", produto);
   };
+
+  // Função para remover item pelo índice
+  const handleRemoveItem = (index: number) => {
+    setCartItems((prevItems) => prevItems.filter((_, i) => i !== index));
+  };
+
   const hideNavBar =
-    location.pathname === "/" || location.pathname === "/createAcount";
+    location.pathname === "/l" || location.pathname === "/createAcount";
 
   return (
     <div>
-      {!hideNavBar && <NavBar cartItems={cartItems} />}
+      {!hideNavBar && (
+        <NavBar
+          cartItems={cartItems}
+          onRemoveItem={handleRemoveItem} // Passa a função aqui
+        />
+      )}
+
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/l" element={<Login />} />
         <Route path="/createAcount" element={<CreateAcount />} />
-        <Route
-          path="/home"
-          element={<Home handleAddToCart={handleAddToCart} />}
-        />
-        <Route
-          path="/shop"
-          element={<Shop handleAddToCart={handleAddToCart} />}
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop handleAddToCart={handleAddToCart} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

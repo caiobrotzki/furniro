@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 interface Produto {
   img: string;
   titulo: string;
@@ -12,14 +13,11 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ produto, addToCart }) => {
-  const [hovered, setHovered] = useState<boolean>(false);
-  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [hovered, setHovered] = useState(false);
 
   const handleAddToCart = () => {
     if (addToCart) {
       addToCart(produto);
-      setShowPopup(true);
-      setTimeout(() => setShowPopup(false), 2000); // Fecha após 2 segundos
     } else {
       console.log("No addToCart function provided");
     }
@@ -27,12 +25,6 @@ const Card: React.FC<CardProps> = ({ produto, addToCart }) => {
 
   return (
     <div className="relative flex flex-col items-center">
-      {/* Popup customizado */}
-      {showPopup && (
-        <div className="fixed top-8 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded shadow-lg z-50 transition-all">
-          O seu item foi adicionado ao carrinho de compras
-        </div>
-      )}
       <div
         className="relative w-full"
         onMouseEnter={() => setHovered(true)}

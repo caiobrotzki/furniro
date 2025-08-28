@@ -12,9 +12,10 @@ interface Produto {
 interface ShoppingCartProps {
   cartItems: Produto[];
   onClose: () => void;
+  onRemoveItem: (index: number) => void;
 }
 
-function ShoppingCart({ cartItems, onClose }: ShoppingCartProps) {
+function ShoppingCart({ cartItems, onClose, onRemoveItem }: ShoppingCartProps) {
   const total = cartItems.reduce((sum: number, item: Produto) => {
     const numericValue = parseFloat(
       item.valor.replace(/[^\d,.-]/g, "").replace(",", ".")
@@ -22,9 +23,16 @@ function ShoppingCart({ cartItems, onClose }: ShoppingCartProps) {
     return sum + (isNaN(numericValue) ? 0 : numericValue);
   }, 0);
 
+  // ...
+
+  <p className="font-bold text-right">
+    Total:{" "}
+    {total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+  </p>;
+
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex">
-      <div className="bg-white p-4 rounded-lg shadow-lg ml-auto w-[250px] flex flex-col justify-between mb-20">
+      <div className="bg-white p-4 rounded-lg shadow-lg ml-auto w-[300px] flex flex-col justify-between mb-20 max-h-[80vh]">
         <div>
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold">Shopping Cart</h2>
@@ -37,12 +45,32 @@ function ShoppingCart({ cartItems, onClose }: ShoppingCartProps) {
           </div>
 
           {cartItems.length > 0 ? (
-            <ul className="mt-4">
+            <ul className="mt-4 overflow-y-auto max-h-[50vh]">
               {cartItems.map((item: Produto, index: number) => (
-                <li key={index} className="flex justify-between mb-2">
-                  <img src={item.img} alt={item.titulo} className="w-10 h-10" />
-                  <p className="text-sm">{item.titulo}</p>
-                  <p className="text-sm">{item.valor}</p>
+                <li
+                  key={index}
+                  className="flex items-center justify-between mb-2"
+                >
+                  <div className="flex items-center space-x-2">
+                    <img
+                      src={item.img}
+                      alt={item.titulo}
+                      className="w-10 h-10"
+                    />
+                    <div>
+                      <p className="text-sm">{item.titulo}</p>
+                      <p className="text-xs text-gray-500">{item.valor}</p>
+                    </div>
+                  </div>
+
+                  {/* Botão Remover */}
+                  <button
+                    onClick={() => onRemoveItem(index)}
+                    className="text-red-500 text-xs hover:underline ml-2"
+                    aria-label={`Remover ${item.titulo} do carrinho`}
+                  >
+                    Remover
+                  </button>
                 </li>
               ))}
             </ul>
@@ -55,7 +83,11 @@ function ShoppingCart({ cartItems, onClose }: ShoppingCartProps) {
 
         <div className="mt-4">
           <p className="font-bold text-right">
-            Total: Rp {total.toLocaleString("id-ID")}{" "}
+            Total:{" "}
+            {total.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
           </p>
           <Link to="/shop">
             <ButtonProp

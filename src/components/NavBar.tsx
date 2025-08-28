@@ -16,16 +16,17 @@ interface Produto {
 
 interface NavBarProps {
   cartItems: Produto[];
+  onRemoveItem: (index: number) => void; // Recebe a função de remover
 }
 
-function NavBar({ cartItems }: NavBarProps) {
+function NavBar({ cartItems, onRemoveItem }: NavBarProps) {
   const [cartPopupOpen, setCartPopupOpen] = useState(false);
 
   const abrirCartPopup = () => setCartPopupOpen(true);
   const fecharCartPopup = () => setCartPopupOpen(false);
 
   return (
-    <div className="w-full pt-6 pb-6 flex justify-between items-center px-20 fixed z-50 bg-white">
+    <div className="w-full pt-6 pb-6 flex justify-between items-center px-20 fixed z-40 bg-white">
       <div className="flex items-center gap-2">
         <img src={logo} alt="logo" className="w-[50px] h-[32px]" />
         <h1 className="text-black text-[34px] font-bold">Furniro</h1>
@@ -77,7 +78,11 @@ function NavBar({ cartItems }: NavBarProps) {
             onClick={abrirCartPopup}
           />
           {cartPopupOpen && (
-            <ShoppingCart cartItems={cartItems} onClose={fecharCartPopup} />
+            <ShoppingCart
+              cartItems={cartItems}
+              onClose={fecharCartPopup}
+              onRemoveItem={onRemoveItem} // PASSA PARA O POPUP A FUNÇÃO
+            />
           )}
         </div>
       </div>

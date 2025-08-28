@@ -10,62 +10,58 @@ interface Produto {
   img: string;
   titulo: string;
   descricao: string;
-  valor: string;
+  valor: number; // Agora é número
 }
 
-interface HomeProps {
-  handleAddToCart: (produto: Produto) => void;
-}
-
-function Home({ handleAddToCart }: HomeProps) {
+function Home() {
   const cardArray: Produto[] = [
     {
       img: CardImage,
       titulo: "Syltherine",
       descricao: "Stylish cafe chair",
-      valor: "Rp 2.500.000",
+      valor: 2500,
     },
     {
       img: CardImage,
       titulo: "Leviosa",
       descricao: "Modern table",
-      valor: "Rp 3.200.000",
+      valor: 3200,
     },
     {
       img: CardImage,
       titulo: "Lolito",
       descricao: "Luxury sofa",
-      valor: "Rp 7.000.000",
+      valor: 7000,
     },
     {
       img: CardImage,
       titulo: "Respira",
       descricao: "Outdoor bar table",
-      valor: "Rp 5.000.000",
+      valor: 5000,
     },
     {
       img: CardImage,
       titulo: "Grifo",
       descricao: "Dining chair",
-      valor: "Rp 1.500.000",
+      valor: 1500,
     },
     {
       img: CardImage,
       titulo: "Muggo",
       descricao: "Small mug",
-      valor: "Rp 150.000",
+      valor: 150,
     },
     {
       img: CardImage,
       titulo: "Pingky",
       descricao: "Cute bed",
-      valor: "Rp 6.500.000",
+      valor: 6500,
     },
     {
       img: CardImage,
       titulo: "Potty",
       descricao: "Minimalist flower pot",
-      valor: "Rp 450.000",
+      valor: 450,
     },
   ];
 
@@ -92,8 +88,11 @@ function Home({ handleAddToCart }: HomeProps) {
               img={produto.img}
               titulo={produto.titulo}
               descricao={produto.descricao}
-              valor={produto.valor}
-              addToCart={handleAddToCart} // Passando a função correta
+              valor={produto.valor.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+              
             />
           ))}
         </div>
@@ -101,7 +100,7 @@ function Home({ handleAddToCart }: HomeProps) {
           <Link to="/shop">
             <Button
               title="Show More"
-              className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border-2 border-[#B88E2F] "
+              className="text-[#B88E2F] font-bold pl-16 pr-16 pt-3 pb-3 border-2 border-[#B88E2F]"
             />
           </Link>
         </div>
