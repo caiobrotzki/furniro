@@ -17,18 +17,15 @@ interface ShoppingCartProps {
 
 function ShoppingCart({ cartItems, onClose, onRemoveItem }: ShoppingCartProps) {
   const total = cartItems.reduce((sum: number, item: Produto) => {
-    const numericValue = parseFloat(
-      item.valor.replace(/[^\d,.-]/g, "").replace(",", ".")
-    );
+    const rawValue = item.valor
+      .replace("R$", "")        // Remove "R$"
+      .replace(/\./g, "")       // Remove pontos (milhar)
+      .replace(",", ".")        // Troca vírgula por ponto decimal
+      .trim();                  // Remove espaços extras
+
+    const numericValue = parseFloat(rawValue);
     return sum + (isNaN(numericValue) ? 0 : numericValue);
   }, 0);
-
-  // ...
-
-  <p className="font-bold text-right">
-    Total:{" "}
-    {total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
-  </p>;
 
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex">
@@ -92,7 +89,7 @@ function ShoppingCart({ cartItems, onClose, onRemoveItem }: ShoppingCartProps) {
           <Link to="/shop">
             <ButtonProp
               title="Keep shopping"
-              className="w-full text-center bg-[#B88E2F] rounded-[3px] text-white"
+              className="w-full text-center bg-[#B88E2F] rounded-[3px] text-white mt-2 py-2"
               onClick={onClose}
             />
           </Link>

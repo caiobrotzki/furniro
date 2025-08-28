@@ -44,8 +44,8 @@ const Card: React.FC<CardProps> = ({ produto, addToCart }) => {
             onClick={handleAddToCart}
             className={`
               flex text-center mt-4 items-center gap-1 justify-center bg-[#B88E2F] 
-              hover:bg-[#a17b28]  text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:scale-105 transform transition-all duration-30
-              
+              hover:bg-[#a17b28]  text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:scale-105 transform transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#a17b28] focus:ring-offset-1
+              select-none j
             `}
             aria-label={`Adicionar ${produto.titulo} ao carrinho`}
           >
