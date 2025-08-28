@@ -117,7 +117,6 @@ function Shop({ handleAddToCart }: ShopProps) {
     },
   ];
 
-  // Função que chama handleAddToCart externo e exibe toast personalizado
   const handleAdd = (produto: Produto) => {
     handleAddToCart(produto);
     toast.success(
