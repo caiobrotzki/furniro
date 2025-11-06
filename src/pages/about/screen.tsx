@@ -1,6 +1,8 @@
 import Footer from "../../components/footer";
 import ImagemFundo from "../../assets/Rectangle 1.svg";
 import logo from "../../assets/Meubel House_Logos-05 (1).svg";
+import Image1 from "../../assets/image 1.svg";
+import Scandi from "../../assets/scandinavian-interior-mockup-wall-decal-background 1.svg";
 
 function AboutScreen() {
   return (
@@ -27,7 +29,7 @@ function AboutScreen() {
             <div className="w-full flex justify-start mb-4">
               <span className="h-1 w-16 bg-[#B88E2F] rounded-full" />
             </div>
-            <div>
+            <div className="">
               <h3 className="font-semibold text-xl mb-2 text-[#B88E2F]">Our Mission</h3>
               <p className="text-[#666666]">To offer timeless furniture that elevates everyday life — built to last and designed for living.</p>
             </div>
@@ -60,6 +62,82 @@ function AboutScreen() {
             400 University Drive Suite 200 Coral Gables, FL 33134 USA
           </p>
         </div>
+
+        {/* New: Our Story section */}
+        <section className="max-w-6xl mx-auto px-4 py-16">
+          <div className="md:flex md:items-center md:gap-12">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl font-bold mb-4 text-[#B88E2F]">Our Story</h2>
+              <p className="text-[#666666] mb-4">
+                Founded with a love for timeless design, Furniro began as a small
+                studio crafting furniture that balances form and function. Over
+                the years we expanded our network of artisans and partners,
+                always focusing on quality materials and thoughtful details.
+              </p>
+              <p className="text-[#666666]">
+                Today, our pieces are present in homes and public spaces where
+                comfort and elegance are valued. We design to last, and we
+                design to be lived in.
+              </p>
+            </div>
+            <div className="md:w-1/2 mt-8 md:mt-0 hover:scale-110 transition-all duration-300">
+              <img
+                src={Scandi}
+                alt="Our story image"
+                className="w-full rounded-2xl shadow-md object-cover"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* New: Meet the team */}
+        <section className="max-w-7xl mx-auto px-4 py-16">
+          <h2 className="text-3xl font-bold text-center mb-8 text-[#B88E2F]">Meet the team</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 ">
+            <div className="bg-white p-6 rounded-2xl shadow-lg text-center hover:scale-110 transition-all duration-300">
+              <img
+                src={Image1}
+                alt="Team member"
+                className="w-32 h-32 object-cover rounded-full mx-auto"
+              />
+              <h3 className="text-xl font-semibold mt-4">Ana Silva</h3>
+              <p className="text-[#9F9F9F]">Head of Design</p>
+              <p className="text-[#666666] mt-3 text-sm">
+                Ana leads our design team with a focus on craftsmanship and
+                material selection. She drives the aesthetic vision behind our
+                collections.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-lg text-center hover:scale-110 transition-all duration-300">
+              <img
+                src={Image1}
+                alt="Team member"
+                className="w-32 h-32 object-cover rounded-full mx-auto"
+              />
+              <h3 className="text-xl font-semibold mt-4">Marco Pereira</h3>
+              <p className="text-[#9F9F9F]">Production Manager</p>
+              <p className="text-[#666666] mt-3 text-sm">
+                Marco manages our production and works closely with artisans to
+                ensure every piece meets our quality standards.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-lg text-center hover:scale-110 transition-all duration-300">
+              <img
+                src={Image1}
+                alt="Team member"
+                className="w-32 h-32 object-cover rounded-full mx-auto"
+              />
+              <h3 className="text-xl font-semibold mt-4">Laura Gomes</h3>
+              <p className="text-[#9F9F9F]">Sustainability Lead</p>
+              <p className="text-[#666666] mt-3 text-sm">
+                Laura drives our sustainability initiatives, sourcing and
+                packaging efforts to reduce environmental impact.
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
 
       <Footer />

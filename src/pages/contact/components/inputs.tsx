@@ -83,7 +83,7 @@ function Inputs({ onSuccess }: InputsProps) {
         <ButtonProp
           title="Submit"
           type="submit"
-          className="mt-7 px-10 py-3 bg-[#B88E2F] text-white border border-[#B88E2F] rounded-[5px] hover:scale-110 hover:bg-[#8f6f25] transition-all duration-00"
+          className="mt-7 px-10 py-3 bg-[#B88E2F] text-white border border-[#B88E2F] rounded-[5px] hover:scale-110 hover:bg-[#8f6f25] transition-all duration-300"
         />
       </div>
     </form>
