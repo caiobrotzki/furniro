@@ -1,11 +1,7 @@
+import AboutScreen from "./about/screen";
+
 function About() {
-  return (
-    <div>
-      <div>
-        <h1>about</h1>
-      </div>
-    </div>
-  );
+  return <div className=""><AboutScreen /></div>;
 }
 
 export default About;

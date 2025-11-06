@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { toast, Toaster } from "sonner";
 import Input from "./form";
 import Button from "./Button";
 
 function Footer() {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = () => {
+    // limpa o input
+    setEmail("");
+    // mostra o toast usando sonner
+    toast("Email enviado");
+  };
   const navLinks = [
     { label: "Home", path: "/home" },
     { label: "Shop", path: "/Shop" },
@@ -55,14 +65,26 @@ function Footer() {
           <Input
             type="text"
             name="enter_email"
-            className="border-b-black border-b-2 text-start"
+            value={email}
+            onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
+            className="border-b-black border-b-2 px-1 text-start hover:cursor-pointer hover:scale-105 transition-all duration-200 "
             placeholder="Enter Your Email Address"
           />
           <Button
             title="SUBSCRIBE"
-            className="ml-5 border-b-2 border-b-black font-semibold"
+            onClick={handleSubscribe}
+            className="ml-5 border-2 border-white hover:border-[#B88E2F] hover:border-b-[#B88E2F]  hover:bg-[#B88E2F] hover:cursor-pointer hover:scale-105 hover:rounded-lg transition-all duration-200 border-b-black font-semibold hover:px-1 hover:py-1 hover:text-white"
           />
         </div>
+
+        <Toaster
+          position="top-right"
+          richColors
+          toastOptions={{
+            className:
+              "bg-green-100 text-green-900 rounded-lg shadow-lg px-5 py-3 flex items-center gap-3",
+          }}
+        />
       </div>
 
       <div className="border-t-4 mt-10 ml-20 mr-20">
