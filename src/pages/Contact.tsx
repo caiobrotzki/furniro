@@ -2,24 +2,23 @@ import Fundo from "./contact/components/fundo";
 import Content from "./contact/components/content";
 import Inputs from "./contact/components/inputs";
 import Footer from "../components/footer";
-import { useState } from "react";
+import { toast, Toaster } from "sonner";
 
 function Contact() {
-  const [showSuccess, setShowSuccess] = useState(false);
-
   const handleFormSuccess = () => {
-    setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 3000);
+    toast.success("Sua mensagem foi enviada!");
   };
 
   return (
     <div className="bg-[#FFFFF] min-h-screen relative">
-      {/* Mensagem fixa no topo da tela */}
-      {showSuccess && (
-        <div className="fixed top-[100px] left-1/2 transform -translate-x-1/2 w-[320px] bg-green-500 text-white px-6 py-4 rounded-lg text-center shadow-lg z-[9999]">
-          Sua mensagem foi enviada!
-        </div>
-      )}
+      <Toaster
+        position="top-right"
+        richColors
+        toastOptions={{
+          className:
+            "bg-green-100 text-green-900 rounded-lg shadow-lg px-5 py-3 flex items-center gap-3",
+        }}
+      />
 
       <Fundo />
 

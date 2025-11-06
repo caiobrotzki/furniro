@@ -79,11 +79,13 @@ function Inputs({ onSuccess }: InputsProps) {
         placeholder="Hi! I’d like to ask about"
         required
       />
-      <ButtonProp
-        title="Submit"
-        type="submit"
-        className="mt-5 w-[137px] h-[37.5px] bg-[#B88E2F] text-white border border-[#B88E2F] rounded-[5px]"
-      />
+      <div className="w-full flex justify-center">
+        <ButtonProp
+          title="Submit"
+          type="submit"
+          className="mt-7 px-10 py-3 bg-[#B88E2F] text-white border border-[#B88E2F] rounded-[5px] hover:scale-110 hover:bg-[#8f6f25] transition-all duration-00"
+        />
+      </div>
     </form>
   );
 }

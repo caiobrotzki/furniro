@@ -1,5 +1,6 @@
 import Footer from "../../components/footer";
 import ImagemFundo from "../../assets/Rectangle 1.svg";
+import logo from "../../assets/Meubel House_Logos-05 (1).svg";
 
 function AboutScreen() {
   return (
@@ -12,6 +13,7 @@ function AboutScreen() {
             className="w-full blur-[50%]"
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <img src={logo} alt="Logo" />
             <h1 className="mt-4 font-bold text-5xl">About Us</h1>
             <div className="flex items-center mt-8">
               <h2 className="font-bold text-[16px] mr-1">Home &gt;</h2>
