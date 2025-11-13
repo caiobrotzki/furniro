@@ -145,11 +145,11 @@ function Shop({ handleAddToCart }: ShopProps) {
         }}
       />
 
-      <div className="mt-10 z-10">
-        <h2 className="text-center text-3xl font-bold pt-5 pb-7 animate-fade-in">
+      <div className="mt-6 md:mt-10 z-10 px-4">
+        <h2 className="text-center text-2xl md:text-3xl font-bold pt-3 md:pt-5 pb-4 md:pb-7 animate-fade-in">
           Our Products
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 place-items-center max-w-screen-xl mx-auto z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-10 place-items-center max-w-screen-xl mx-auto z-10">
           {cardArray.map((produto, index) => (
             <div
               key={index}
